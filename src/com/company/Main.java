@@ -1,24 +1,20 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        String editedContent2015 = "";
-        String editedContent2016 = "";
-        String editedContent2017 = "";
-        String editedContent2018 = "";
-        String editedContent2019 = "";
-        String editedContent2020 = "";
-        String madafakinCelkem = "";
+        ArrayList<String[]> data2015 = new ArrayList<>();
+        ArrayList<String[]> data2016 = new ArrayList<>();
+        ArrayList<String[]> data2017 = new ArrayList<>();
+        ArrayList<String[]> data2018 = new ArrayList<>();
+        ArrayList<String[]> data2019 = new ArrayList<>();
+        ArrayList<String[]> data2020 = new ArrayList<>();
 
-        //Reading
+        //region :read
         try {
             BufferedReader br2015 = new BufferedReader(new FileReader("VF/VF_2015.dat"));
             BufferedReader br2016 = new BufferedReader(new FileReader("VF/VF_2016.dat"));
@@ -28,59 +24,172 @@ public class Main {
             BufferedReader br2020 = new BufferedReader(new FileReader("VF/VF_2020.dat"));
             BufferedReader brseznam = new BufferedReader(new FileReader("VF/seznam-spolecnosti.dat"));
 
-            String content2015 = "";
             String nextLine2015 = br2015.readLine();
-
-            String content2016 = "";
             String nextLine2016 = br2016.readLine();
-
-            String content2017 = "";
             String nextLine2017 = br2017.readLine();
-
-            String content2018 = "";
             String nextLine2018 = br2018.readLine();
-
-            String content2019 = "";
             String nextLine2019 = br2019.readLine();
-
-            String content2020 = "";
             String nextLine2020 = br2020.readLine();
 
-            String madafakinSeznam = "";
             String nextlineSeznam = brseznam.readLine();
 
-            while ((nextLine2015 != null) && (nextLine2016 != null) && (nextLine2017 != null) && (nextLine2018 != null) && (nextLine2019 != null) && (nextLine2020 != null) && (nextlineSeznam !=null)) {
-                content2015 += (nextLine2015 + "\n");
-                content2016 += (nextLine2016 + "\n");
-                content2017 += (nextLine2017 + "\n");
-                content2018 += (nextLine2018 + "\n");
-                content2019 += (nextLine2019 + "\n");
-                content2020 += (nextLine2020 + "\n");
+            while ((nextLine2015 != null)) {
+                String[] row = nextLine2015.split(",");
+                data2015.add(row);
                 nextLine2015 = br2015.readLine();
+            }
+
+            while ((nextLine2016 != null)) {
+                String[] row = nextLine2016.split(",");
+                data2016.add(row);
                 nextLine2016 = br2016.readLine();
+            }
+
+            while ((nextLine2017 != null)) {
+                String[] row = nextLine2017.split(",");
+                data2017.add(row);
                 nextLine2017 = br2017.readLine();
+            }
+
+            while ((nextLine2018 != null)) {
+                String[] row = nextLine2018.split(",");
+                data2018.add(row);
                 nextLine2018 = br2018.readLine();
+            }
+
+            while ((nextLine2019 != null)) {
+                String[] row = nextLine2019.split(",");
+                data2019.add(row);
                 nextLine2019 = br2019.readLine();
+            }
+
+            while ((nextLine2020 != null)) {
+                String[] row = nextLine2020.split(",");
+                data2020.add(row);
                 nextLine2020 = br2020.readLine();
             }
 
-            br2015.close(); br2016.close(); br2017.close(); br2018.close(); br2019.close(); br2020.close();
 
-            editedContent2015 = content2015.replaceAll(",", ";");
-            editedContent2016 = content2016.replaceAll(",", ";");
-            editedContent2017 = content2017.replaceAll(",", ";");
-            editedContent2018 = content2018.replaceAll(",", ";");
-            editedContent2019 = content2019.replaceAll(",", ";");
-            editedContent2020 = content2020.replaceAll(",", ";");
+            for (int i = 0; i < data2015.size(); i++) {
+                if (data2015.get(i)[1].equals("05159822")) {
+                    data2015.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2015.get(i)[1].equals("06230932")) {
+                    data2015.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2015.get(i)[1].equals("18539217")) {
+                    data2015.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2015.get(i)[1].equals("02838109")) {
+                    data2015.get(i)[1] = "Martin Nový";
+                } else if (data2015.get(i)[1].equals("01846359")) {
+                    data2015.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2015.get(i)[1].equals("9831829")) {
+                    data2015.get(i)[1] = "Valza, a.s.";
+                } else if (data2015.get(i)[1].equals("33828139")) {
+                    data2015.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
 
-            madafakinCelkem = (editedContent2015 + "\n" + editedContent2016 + "\n" + editedContent2017 + "\n" + editedContent2018 + "\n" + editedContent2019 + "\n" + editedContent2020);
+            for (int i = 0; i < data2016.size(); i++) {
+                if (data2016.get(i)[1].equals("05159822")) {
+                    data2016.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2016.get(i)[1].equals("06230932")) {
+                    data2016.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2016.get(i)[1].equals("18539217")) {
+                    data2016.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2016.get(i)[1].equals("02838109")) {
+                    data2016.get(i)[1] = "Martin Nový";
+                } else if (data2016.get(i)[1].equals("01846359")) {
+                    data2016.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2016.get(i)[1].equals("9831829")) {
+                    data2016.get(i)[1] = "Valza, a.s.";
+                } else if (data2016.get(i)[1].equals("33828139")) {
+                    data2016.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
+
+            for (int i = 0; i < data2017.size(); i++) {
+                if (data2017.get(i)[1].equals("05159822")) {
+                    data2017.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2017.get(i)[1].equals("06230932")) {
+                    data2017.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2017.get(i)[1].equals("18539217")) {
+                    data2017.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2017.get(i)[1].equals("02838109")) {
+                    data2017.get(i)[1] = "Martin Nový";
+                } else if (data2017.get(i)[1].equals("01846359")) {
+                    data2017.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2017.get(i)[1].equals("9831829")) {
+                    data2017.get(i)[1] = "Valza, a.s.";
+                } else if (data2017.get(i)[1].equals("33828139")) {
+                    data2017.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
+
+            for (int i = 0; i < data2018.size(); i++) {
+                if (data2018.get(i)[1].equals("05159822")) {
+                    data2018.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2018.get(i)[1].equals("06230932")) {
+                    data2018.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2018.get(i)[1].equals("18539217")) {
+                    data2018.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2018.get(i)[1].equals("02838109")) {
+                    data2018.get(i)[1] = "Martin Nový";
+                } else if (data2018.get(i)[1].equals("01846359")) {
+                    data2018.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2018.get(i)[1].equals("9831829")) {
+                    data2018.get(i)[1] = "Valza, a.s.";
+                } else if (data2018.get(i)[1].equals("33828139")) {
+                    data2018.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
+
+            for (int i = 0; i < data2019.size(); i++) {
+                if (data2019.get(i)[1].equals("05159822")) {
+                    data2019.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2019.get(i)[1].equals("06230932")) {
+                    data2019.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2019.get(i)[1].equals("18539217")) {
+                    data2019.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2019.get(i)[1].equals("02838109")) {
+                    data2019.get(i)[1] = "Martin Nový";
+                } else if (data2019.get(i)[1].equals("01846359")) {
+                    data2019.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2019.get(i)[1].equals("9831829")) {
+                    data2019.get(i)[1] = "Valza, a.s.";
+                } else if (data2019.get(i)[1].equals("33828139")) {
+                    data2019.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
+
+            for (int i = 0; i < data2020.size(); i++) {
+                if (data2020.get(i)[1].equals("05159822")) {
+                    data2020.get(i)[1] = "BlueNet, s.r.o.";
+                } else if (data2020.get(i)[1].equals("06230932")) {
+                    data2020.get(i)[1] = "Epic Internet a.s.";
+                } else if (data2020.get(i)[1].equals("18539217")) {
+                    data2020.get(i)[1] = "Big žirafa s.r.o.";
+                } else if (data2020.get(i)[1].equals("02838109")) {
+                    data2020.get(i)[1] = "Martin Nový";
+                } else if (data2020.get(i)[1].equals("01846359")) {
+                    data2020.get(i)[1] = "GreenStyles, a.s.";
+                } else if (data2020.get(i)[1].equals("9831829")) {
+                    data2020.get(i)[1] = "Valza, a.s.";
+                } else if (data2020.get(i)[1].equals("33828139")) {
+                    data2020.get(i)[1] = "ZCZ, s.r.o.";
+                }
+            }
+
+            br2015.close();
+            br2016.close();
+            br2017.close();
+            br2018.close();
+            br2019.close();
+            br2020.close();
         } catch (IOException e) {
-            System.out.println("Unable to read file... :(");
+            e.printStackTrace();
         }
+        //endregion
 
-
-        //Writing
-
+        //region: write
         try {
             BufferedWriter bw2015 = new BufferedWriter(new FileWriter("VF/CSV/VF_2015.csv"));
             BufferedWriter bw2016 = new BufferedWriter(new FileWriter("VF/CSV/VF_2016.csv"));
@@ -90,19 +199,60 @@ public class Main {
             BufferedWriter bw2020 = new BufferedWriter(new FileWriter("VF/CSV/VF_2020.csv"));
             BufferedWriter bwCELKEM = new BufferedWriter(new FileWriter("VF/CSV/VF_Celkem.csv"));
 
-            bw2015.write(editedContent2015);
-            bw2016.write(editedContent2016);
-            bw2017.write(editedContent2017);
-            bw2018.write(editedContent2018);
-            bw2019.write(editedContent2019);
-            bw2020.write(editedContent2020);
-            bwCELKEM.write(madafakinCelkem);
+            for (int i = 0; i < data2015.size(); i++) {
+                bw2015.write(data2015.get(i)[0] + ";");
+                bw2015.write(data2015.get(i)[1] + ";");
+                bw2015.write(data2015.get(i)[2]);
+                bw2015.newLine();
+            }
 
-            bw2015.close(); bw2016.close(); bw2017.close(); bw2018.close(); bw2019.close(); bw2020.close();
+            for (int i = 0; i < data2016.size(); i++) {
+                bw2016.write(data2016.get(i)[0] + ";");
+                bw2016.write(data2016.get(i)[1] + ";");
+                bw2016.write(data2016.get(i)[2]);
+                bw2016.newLine();
+            }
+
+            for (int i = 0; i < data2017.size(); i++) {
+                bw2017.write(data2017.get(i)[0] + ";");
+                bw2017.write(data2017.get(i)[1] + ";");
+                bw2017.write(data2017.get(i)[2]);
+                bw2017.newLine();
+            }
+
+            for (int i = 0; i < data2018.size(); i++) {
+                bw2018.write(data2018.get(i)[0] + ";");
+                bw2018.write(data2018.get(i)[1] + ";");
+                bw2018.write(data2018.get(i)[2]);
+                bw2018.newLine();
+            }
+
+            for (int i = 0; i < data2019.size(); i++) {
+                bw2019.write(data2019.get(i)[0] + ";");
+                bw2019.write(data2019.get(i)[1] + ";");
+                bw2019.write(data2019.get(i)[2]);
+                bw2019.newLine();
+            }
+
+            for (int i = 0; i < data2020.size(); i++) {
+                bw2020.write(data2020.get(i)[0] + ";");
+                bw2020.write(data2020.get(i)[1] + ";");
+                bw2020.write(data2020.get(i)[2]);
+                bw2020.newLine();
+            }
+
+            bw2015.close();
+            bw2016.close();
+            bw2017.close();
+            bw2018.close();
+            bw2019.close();
+            bw2020.close();
             bwCELKEM.close();
         } catch (IOException e) {
-            System.out.println("Unable to write to file...");
+            e.printStackTrace();
         }
+
+        //endregion
 
     }
 }
