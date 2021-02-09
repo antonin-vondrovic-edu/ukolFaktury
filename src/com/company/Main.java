@@ -26,6 +26,7 @@ public class Main {
             BufferedReader br2018 = new BufferedReader(new FileReader("VF/VF_2018.dat"));
             BufferedReader br2019 = new BufferedReader(new FileReader("VF/VF_2019.dat"));
             BufferedReader br2020 = new BufferedReader(new FileReader("VF/VF_2020.dat"));
+            BufferedReader brseznam = new BufferedReader(new FileReader("VF/seznam-spolecnosti.dat"));
 
             String content2015 = "";
             String nextLine2015 = br2015.readLine();
@@ -45,7 +46,10 @@ public class Main {
             String content2020 = "";
             String nextLine2020 = br2020.readLine();
 
-            while ((nextLine2015 != null) && (nextLine2016 != null) && (nextLine2017 != null) && (nextLine2018 != null) && (nextLine2019 != null) && (nextLine2020 != null)) {
+            String madafakinSeznam = "";
+            String nextlineSeznam = brseznam.readLine();
+
+            while ((nextLine2015 != null) && (nextLine2016 != null) && (nextLine2017 != null) && (nextLine2018 != null) && (nextLine2019 != null) && (nextLine2020 != null) && (nextlineSeznam !=null)) {
                 content2015 += (nextLine2015 + "\n");
                 content2016 += (nextLine2016 + "\n");
                 content2017 += (nextLine2017 + "\n");
@@ -60,9 +64,6 @@ public class Main {
                 nextLine2020 = br2020.readLine();
             }
 
-            madafakinCelkem = (content2015 + "\n" + content2016 + "\n" + content2017 + "\n" + content2018 + "\n" + content2019 + "\n" + content2020);
-
-
             br2015.close(); br2016.close(); br2017.close(); br2018.close(); br2019.close(); br2020.close();
 
             editedContent2015 = content2015.replaceAll(",", ";");
@@ -71,6 +72,8 @@ public class Main {
             editedContent2018 = content2018.replaceAll(",", ";");
             editedContent2019 = content2019.replaceAll(",", ";");
             editedContent2020 = content2020.replaceAll(",", ";");
+
+            madafakinCelkem = (editedContent2015 + "\n" + editedContent2016 + "\n" + editedContent2017 + "\n" + editedContent2018 + "\n" + editedContent2019 + "\n" + editedContent2020);
         } catch (IOException e) {
             System.out.println("Unable to read file... :(");
         }
