@@ -59,7 +59,6 @@ public class Main {
 
 
         //Writing
-
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("VF/nezname-spolecnosti.dat"));
 
