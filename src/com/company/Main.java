@@ -85,6 +85,12 @@ public class Main {
                     data2015.get(i)[1] = "Valza, a.s.";
                 } else if (data2015.get(i)[1].equals("33828139")) {
                     data2015.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2015.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2015.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2015.get(i)[1].equals("IČO")) {
+                    data2015.get(i)[1] = "NÁZEV";
+                } else if (data2015.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2015.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -103,6 +109,12 @@ public class Main {
                     data2016.get(i)[1] = "Valza, a.s.";
                 } else if (data2016.get(i)[1].equals("33828139")) {
                     data2016.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2016.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2016.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2016.get(i)[1].equals("IČO SPOLEČNOSTI")) {
+                    data2016.get(i)[1] = "NÁZEV SPOLEČNOSTI";
+                } else if (data2016.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2016.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -121,6 +133,12 @@ public class Main {
                     data2017.get(i)[1] = "Valza, a.s.";
                 } else if (data2017.get(i)[1].equals("33828139")) {
                     data2017.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2017.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2017.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2017.get(i)[1].equals("IČO SPOLEČNOSTI")) {
+                    data2017.get(i)[1] = "NÁZEV SPOLEČNOSTI";
+                } else if (data2017.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2017.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -139,6 +157,12 @@ public class Main {
                     data2018.get(i)[1] = "Valza, a.s.";
                 } else if (data2018.get(i)[1].equals("33828139")) {
                     data2018.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2018.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2018.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2018.get(i)[1].equals("IČO SPOLEČNOSTI")) {
+                    data2018.get(i)[1] = "NÁZEV SPOLEČNOSTI";
+                } else if (data2018.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2018.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -157,6 +181,12 @@ public class Main {
                     data2019.get(i)[1] = "Valza, a.s.";
                 } else if (data2019.get(i)[1].equals("33828139")) {
                     data2019.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2019.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2019.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2019.get(i)[1].equals("IČO SPOLEČNOSTI")) {
+                    data2019.get(i)[1] = "NÁZEV SPOLEČNOSTI";
+                } else if (data2019.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2019.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -175,6 +205,12 @@ public class Main {
                     data2020.get(i)[1] = "Valza, a.s.";
                 } else if (data2020.get(i)[1].equals("33828139")) {
                     data2020.get(i)[1] = "ZCZ, s.r.o.";
+                } else if (data2020.get(i)[0].equals("ČÍSLO FAKTURY")) {
+                    data2020.get(i)[0] = "POŘADOVÉ ČÍSLO";
+                } else if (data2020.get(i)[1].equals("IČO SPOLEČNOSTI")) {
+                    data2020.get(i)[1] = "NÁZEV SPOLEČNOSTI";
+                } else if (data2020.get(i)[2].equals("ČÁSTKA (V CELÝCH KČ)")) {
+                    data2020.get(i)[2] = "CELKEM_V_KČ";
                 }
             }
 
@@ -184,6 +220,49 @@ public class Main {
             br2018.close();
             br2019.close();
             br2020.close();
+
+            int suma2015 = 0;
+            int suma2016 = 0;
+            int suma2017 = 0;
+            int suma2018 = 0;
+            int suma2019 = 0;
+            int suma2020 = 0;
+
+            for (int i = 1; i < data2015.size()-1; i++) {
+                suma2015 = suma2015 + Integer.parseInt(data2015.get(i)[2]);
+            }
+
+            for (int i = 1; i < data2016.size()-1; i++) {
+                suma2016 = suma2016 + Integer.parseInt(data2016.get(i)[2]);
+            }
+
+            for (int i = 1; i < data2017.size()-1; i++) {
+                suma2017 = suma2017 + Integer.parseInt(data2017.get(i)[2]);
+            }
+
+            for (int i = 1; i < data2018.size()-1; i++) {
+                suma2018 = suma2018 + Integer.parseInt(data2018.get(i)[2]);
+            }
+
+            for (int i = 1; i < data2019.size()-1; i++) {
+                suma2019 = suma2019 + Integer.parseInt(data2019.get(i)[2]);
+            }
+
+            for (int i = 1; i < data2020.size()-1; i++) {
+                suma2020 = suma2020 + Integer.parseInt(data2020.get(i)[2]);
+            }
+
+            System.out.println("####################");
+            System.out.println("# SUMA CELKEM_V_KČ #");
+            System.out.println("####################");
+            System.out.println("# Suma 2015: " + suma2015);
+            System.out.println("# Suma 2016: " + suma2016);
+            System.out.println("# Suma 2017: " + suma2017);
+            System.out.println("# Suma 2018: " + suma2018);
+            System.out.println("# Suma 2019: " + suma2019);
+            System.out.println("# Suma 2020: " + suma2020);
+            System.out.println("####################");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
