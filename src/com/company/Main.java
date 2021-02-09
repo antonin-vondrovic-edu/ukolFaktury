@@ -221,12 +221,12 @@ public class Main {
             br2019.close();
             br2020.close();
 
-            int suma2015 = 0;
-            int suma2016 = 0;
-            int suma2017 = 0;
-            int suma2018 = 0;
-            int suma2019 = 0;
-            int suma2020 = 0;
+            long suma2015 = 0;
+            long suma2016 = 0;
+            long suma2017 = 0;
+            long suma2018 = 0;
+            long suma2019 = 0;
+            long suma2020 = 0;
 
             for (int i = 1; i < data2015.size()-1; i++) {
                 suma2015 = suma2015 + Integer.parseInt(data2015.get(i)[2]);
@@ -252,15 +252,12 @@ public class Main {
                 suma2020 = suma2020 + Integer.parseInt(data2020.get(i)[2]);
             }
 
+            long sumaCelkem = suma2015 + suma2016 + suma2017 + suma2018 + suma2019 + suma2020;
+
             System.out.println("####################");
             System.out.println("# SUMA CELKEM_V_KČ #");
             System.out.println("####################");
-            System.out.println("# Suma 2015: " + suma2015);
-            System.out.println("# Suma 2016: " + suma2016);
-            System.out.println("# Suma 2017: " + suma2017);
-            System.out.println("# Suma 2018: " + suma2018);
-            System.out.println("# Suma 2019: " + suma2019);
-            System.out.println("# Suma 2020: " + suma2020);
+            System.out.println("# Suma: " + sumaCelkem);
             System.out.println("####################");
 
         } catch (IOException e) {
